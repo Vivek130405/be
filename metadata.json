@@ -1,0 +1,8 @@
+{
+  "name": "Nancy's 18th Birthday Journey",
+  "description": "An emotional, interactive journey celebrating Nancy's 18th birthday with stories, games, and a heartfelt love letter.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": []
+}
