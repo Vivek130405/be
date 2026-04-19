@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&display=swap');
+
+@theme {
+  --font-serif: "Georgia", serif;
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  --font-cursive: "Brush Script MT", "Dancing Script", cursive;
+  
+  --color-editorial-pink: #FFDDEE;
+  --color-editorial-purple: #E6E6FA;
+  --color-editorial-sky: #E0F2FF;
+  --color-editorial-text: #4A4E69;
+  --color-editorial-accent: #FF85A1;
+  --color-editorial-white: rgba(255, 255, 255, 0.8);
+}
+
+@layer base {
+  body {
+    @apply text-editorial-text overflow-x-hidden;
+    font-family: var(--font-serif);
+    background: linear-gradient(135deg, var(--color-editorial-pink), var(--color-editorial-sky));
+    min-height: 100vh;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .bg-magical {
+    background: linear-gradient(135deg, var(--color-editorial-pink), var(--color-editorial-sky));
+  }
+
+  .glass {
+    background: var(--color-editorial-white);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    @apply rounded-[20px] shadow-[0_8px_32px_rgba(0,0,0,0.05)];
+  }
+
+  .editorial-card {
+    background: var(--color-editorial-white);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    @apply rounded-[20px] shadow-[0_8px_32px_rgba(0,0,0,0.05)] p-6 md:p-8;
+  }
+
+  .editorial-button {
+    @apply bg-editorial-accent text-white font-bold py-3 px-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg;
+  }
+
+  .photo-card {
+    @apply bg-white rounded-[15px] overflow-hidden border-4 border-white shadow-[0_4px_15px_rgba(0,0,0,0.1)];
+  }
+
+  .photo-sepia {
+    filter: sepia(0.2) contrast(0.9);
+  }
+
+  .letter-paper {
+    background: #fffcf2;
+    box-shadow: 5px 5px 0px var(--color-editorial-purple);
+    border: 1px solid #ddd;
+    @apply rounded-[5px] relative;
+  }
+
+  .letter-lines::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 30px;
+    background: repeating-linear-gradient(90deg, #f0e6d2 0px, #f0e6d2 1px, transparent 1px, transparent 20px);
+    opacity: 0.3;
+  }
+
+  .timeline-border {
+    @apply border-l-2 border-editorial-pink pl-5;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-editorial-pink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-editorial-accent);
+  border-radius: 999px;
+}
